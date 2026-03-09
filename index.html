@@ -45,7 +45,12 @@ position:absolute;
 #message{
 display:none;
 font-size:28px;
-margin-top:30px;
+margin-top:20px;
+}
+
+#formSection{
+display:none;
+margin-top:40px;
 }
 
 .heart{
@@ -60,7 +65,6 @@ animation:fall 5s linear infinite;
 }
 
 iframe{
-margin-top:40px;
 border-radius:10px;
 }
 
@@ -83,11 +87,14 @@ border-radius:10px;
 💖 You just made me the happiest person in the world! 💖
 </div>
 
-<br><br>
+</div>
+
+<div id="formSection">
 
 <h2>Write Your Feelings For Me 💌</h2>
 
-<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdlai3MPz9nj8sufFCmSPZGZMgM-iujmuFXh3PvLcfmK1hXDA/viewform?embedded=true"
+<iframe 
+src="https://docs.google.com/forms/d/e/1FAIpQLSdlai3MPz9nj8sufFCmSPZGZMgM-iujmuFXh3PvLcfmK1hXDA/viewform?embedded=true"
 width="640"
 height="800"
 frameborder="0"
@@ -101,34 +108,49 @@ Loading…
 <script>
 
 function yesClicked(){
+
 document.getElementById("message").style.display="block"
+document.getElementById("formSection").style.display="block"
+
 startHearts()
+
 }
 
 function moveButton(){
+
 var button=document.getElementById("noBtn")
+
 var x=Math.random()*window.innerWidth
 var y=Math.random()*window.innerHeight
+
 button.style.left=x+"px"
 button.style.top=y+"px"
+
 }
 
 function createHeart(){
+
 const heart=document.createElement("div")
+
 heart.classList.add("heart")
 heart.innerHTML="❤️"
+
 heart.style.left=Math.random()*100+"vw"
 heart.style.fontSize=Math.random()*30+20+"px"
 heart.style.animationDuration=Math.random()*3+2+"s"
+
 document.body.appendChild(heart)
 
 setTimeout(()=>{
 heart.remove()
 },5000)
+
 }
 
 function startHearts(){
+
 setInterval(createHeart,300)
+
 }
 
 </script>
