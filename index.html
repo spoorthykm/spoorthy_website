@@ -48,6 +48,19 @@ font-size:28px;
 margin-top:30px;
 }
 
+textarea{
+width:300px;
+height:120px;
+font-size:16px;
+border-radius:10px;
+padding:10px;
+}
+
+#displayFeeling{
+margin-top:20px;
+font-size:24px;
+}
+
 .heart{
 position:fixed;
 color:red;
@@ -78,6 +91,18 @@ animation:fall 5s linear infinite;
 💖 You just made me the happiest person in the world! 💖
 </div>
 
+<br><br>
+
+<h2>Write Your Feelings For Me 💌</h2>
+
+<textarea id="feelingText" placeholder="Write your feelings here..."></textarea>
+
+<br><br>
+
+<button onclick="showFeeling()">Send ❤️</button>
+
+<h3 id="displayFeeling"></h3>
+
 </div>
 
 <script>
@@ -93,6 +118,11 @@ var x=Math.random()*window.innerWidth
 var y=Math.random()*window.innerHeight
 button.style.left=x+"px"
 button.style.top=y+"px"
+}
+
+function showFeeling(){
+var text=document.getElementById("feelingText").value
+document.getElementById("displayFeeling").innerHTML="💌 His Message: " + text
 }
 
 function createHeart(){
