@@ -2,7 +2,118 @@
 <html>
 <head>
 <title>For My Love ❤️</title>
+
+<style>
+
+body{
+margin:0;
+font-family:Arial;
+background:linear-gradient(120deg,#ff758c,#ff7eb3);
+text-align:center;
+color:white;
+overflow:hidden;
+}
+
+.container{
+margin-top:120px;
+}
+
+h1{
+font-size:50px;
+}
+
+button{
+padding:15px 30px;
+font-size:18px;
+border:none;
+border-radius:30px;
+cursor:pointer;
+margin:10px;
+}
+
+#yesBtn{
+background:white;
+color:#ff4d6d;
+}
+
+#noBtn{
+background:black;
+color:white;
+position:absolute;
+}
+
+#message{
+display:none;
+font-size:28px;
+margin-top:30px;
+}
+
+.heart{
+position:fixed;
+color:red;
+animation:fall 5s linear infinite;
+}
+
+@keyframes fall{
+0%{transform:translateY(-10vh)}
+100%{transform:translateY(110vh)}
+}
+
+</style>
+
 </head>
-<p> 
-Every moment is special.
-</p>
+
+<body>
+
+<div class="container">
+
+<h1>❤️ My Love ❤️</h1>
+
+<h2>Will you marry me forever? 💍</h2>
+
+<button id="yesBtn" onclick="yesClicked()">YES ❤️</button>
+<button id="noBtn" onmouseover="moveButton()">NO 😜</button>
+
+<div id="message">
+💖 You just made me the happiest person in the world! 💖
+</div>
+
+</div>
+
+<script>
+
+function yesClicked(){
+document.getElementById("message").style.display="block"
+startHearts()
+}
+
+function moveButton(){
+var button=document.getElementById("noBtn")
+var x=Math.random()*window.innerWidth
+var y=Math.random()*window.innerHeight
+button.style.left=x+"px"
+button.style.top=y+"px"
+}
+
+function createHeart(){
+const heart=document.createElement("div")
+heart.classList.add("heart")
+heart.innerHTML="❤️"
+heart.style.left=Math.random()*100+"vw"
+heart.style.fontSize=Math.random()*30+20+"px"
+heart.style.animationDuration=Math.random()*3+2+"s"
+document.body.appendChild(heart)
+
+setTimeout(()=>{
+heart.remove()
+},5000)
+}
+
+function startHearts(){
+setInterval(createHeart,300)
+}
+
+</script>
+
+</body>
+</html>
